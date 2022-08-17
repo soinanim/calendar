@@ -1,24 +1,22 @@
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import Event from '../pages/Event';
-import Login from '../pages/Login';
+import { useTypedSelector } from '../hooks/useTypedSelector';
 import { privateRoutes, publicRoutes, RouteNames } from '../router';
 
-console.log(privateRoutes);
 const AppRouter = () => {
-  const auth = true;
-  return auth ? (
+  const { isAuth } = useTypedSelector((state) => state.auth);
+
+  return isAuth ? (
     <Routes>
       {privateRoutes.map((route) => (
         <Route
-          path='/'
+          path={route.path}
           //   exact={route.exact}
-          element={route.element}
-          // element={<Event />}
+          element={<route.element />}
           key={route.path}
         />
       ))}
-      {/* <Navigate to={RouteNames.EVENT} /> */}
+      <Route path='*' element={<Navigate to={RouteNames.EVENT} replace />} />
     </Routes>
   ) : (
     <Routes>
@@ -26,10 +24,11 @@ const AppRouter = () => {
         <Route
           path={route.path}
           //   exact={route.exact}
-          element={<Login />}
+          element={<route.element />}
           key={route.path}
         />
       ))}
+      <Route path='*' element={<Navigate to={RouteNames.LOGIN} replace />} />
     </Routes>
   );
 };
