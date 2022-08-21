@@ -33,22 +33,14 @@ const Navbar: FC = () => {
               theme='dark'
               mode='horizontal'
               selectable={false}
-              items={items1}>
-              {/* <Menu.Item onClick={() => console.log('Выйти')} key={1}>
-                Выйти
-              </Menu.Item> */}
-            </Menu>
+              items={items1}></Menu>
           </>
         ) : (
           <Menu
             theme='dark'
             mode='horizontal'
             selectable={false}
-            items={items2}>
-            {/* <Menu.Item onClick={() => navigate(RouteNames.LOGIN)} key={1}>
-              Логин
-            </Menu.Item> */}
-          </Menu>
+            items={items2}></Menu>
         )}
       </Row>
     </Layout.Header>

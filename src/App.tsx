@@ -3,11 +3,10 @@ import React, { FC, useEffect } from 'react';
 import { Layout } from 'antd';
 import AppRouter from './components/AppRouter';
 import Navbar from './components/Navbar';
-
-import './App.css';
-import { setUseProxies } from 'immer';
 import { useActions } from './hooks/useActions';
 import { IUser } from './models/IUser';
+
+import './App.css';
 
 const App: FC = () => {
   const { setUser, setIsAuth } = useActions();

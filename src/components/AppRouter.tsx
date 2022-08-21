@@ -9,24 +9,14 @@ const AppRouter = () => {
   return isAuth ? (
     <Routes>
       {privateRoutes.map((route) => (
-        <Route
-          path={route.path}
-          //   exact={route.exact}
-          element={<route.element />}
-          key={route.path}
-        />
+        <Route path={route.path} element={<route.element />} key={route.path} />
       ))}
       <Route path='*' element={<Navigate to={RouteNames.EVENT} replace />} />
     </Routes>
   ) : (
     <Routes>
       {publicRoutes.map((route) => (
-        <Route
-          path={route.path}
-          //   exact={route.exact}
-          element={<route.element />}
-          key={route.path}
-        />
+        <Route path={route.path} element={<route.element />} key={route.path} />
       ))}
       <Route path='*' element={<Navigate to={RouteNames.LOGIN} replace />} />
     </Routes>

@@ -1,5 +1,3 @@
-import axios from 'axios';
-import { collapseTextChangeRangesAcrossMultipleVersions } from 'typescript';
 import { AppDispatch } from '../..';
 import UserService from '../../../api/UserService';
 import { IUser } from '../../../models/IUser';
@@ -42,12 +40,11 @@ export const AuthActionCreators = {
           );
 
           if (mockUser) {
-            console.log(mockUser);
             localStorage.setItem('auth', 'true');
             localStorage.setItem('username', mockUser.username);
 
-            dispatch(AuthActionCreators.setIsAuth(true));
             dispatch(AuthActionCreators.setUser(mockUser));
+            dispatch(AuthActionCreators.setIsAuth(true));
           } else {
             dispatch(
               AuthActionCreators.setError('Некорректный логин или пароль')
