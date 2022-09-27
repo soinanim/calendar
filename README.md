@@ -1,3 +1,19 @@
+## List of authorized users to login:
+[
+    {
+        "username": "user",
+        "password": "123"
+    },
+    {
+        "username": "admin",
+        "password": "123"
+    }, 
+    {
+        "username": "soinanim",
+        "password": "123"
+    }
+]
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
